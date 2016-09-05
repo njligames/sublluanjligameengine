@@ -7,7 +7,7 @@
 		{	"name": "Run",
 			"cmd": ["luajit", "$file"]
 		},
-		{	"name": “NJLIGameEngine”,
+		{	"name": "Love2D",
 			"shell": true,
 			"cmd": ["/Applications/love.app/Contents/MacOS/love", "$project_path"],
 			"osx":
