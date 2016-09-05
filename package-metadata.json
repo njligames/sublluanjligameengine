@@ -1,1 +1,1 @@
-{"description": "SublimeText Lua and NJLIGameEngine package. ", "url": "https://github.com/szensk/subllualove", "platforms": ["*"], "version": "2014.06.03.02.14.21", "sublime_text": "*", "dependencies": []}
+{"description": "SublimeText Lua and NJLIGameEngine package. ", "url": "https://github.com/njligames/sublluanjligameengine.git", "platforms": ["*"], "version": "2016.09.05.01.47.00”, "sublime_text": "*", "dependencies": []}
