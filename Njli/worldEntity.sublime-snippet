@@ -228,8 +228,6 @@ end
 
 return ${1:WorldEntity}
 
-
-Hello, ${1:this} is a ${2:snippet}.
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
 	<tabTrigger>worldEntity</tabTrigger>
