@@ -1,0 +1,238 @@
+<snippet>
+	<content><![CDATA[
+local BaseClass = require "NJLI.STATEMACHINE.WorldEntity"
+
+local ${1:WorldEntity} = {}
+${1:WorldEntity}.__index = ${1:WorldEntity}
+
+--#############################################################################
+--DO NOT EDIT ABOVE
+--#############################################################################
+
+--#############################################################################
+--Begin Custom Code
+--Required local functions:
+-- __ctor()
+-- __dtor()
+-- __load()
+-- __unLoad()
+--#############################################################################
+
+local __ctor = function(self, init)
+  --TODO: construct this Entity
+end
+
+local __dtor = function(self)
+  --TODO: destruct this Entity
+end
+
+local __load = function(self)
+  --TODO: load this Entity
+end
+
+local __unLoad = function(self)
+  --TODO: unload this Entity
+end
+
+--#############################################################################
+
+function ${1:WorldEntity}:enter()
+  BaseClass.enter(self)
+  print("${1:WorldEntity}:enter()")
+end
+
+function ${1:WorldEntity}:update(timeStep)
+  BaseClass.update(self, timeStep)
+  print("${1:WorldEntity}:update(timeStep)")
+end
+
+function ${1:WorldEntity}:exit()
+  BaseClass.exit(self)
+  print("${1:WorldEntity}:exit()")
+end
+
+function ${1:WorldEntity}:onMessage()
+  BaseClass.onMessage(self)
+  print("${1:WorldEntity}:onMessage()")
+end
+
+function ${1:WorldEntity}:renderHUD()
+  BaseClass.renderHUD(self)
+  print("${1:WorldEntity}:renderHUD()")
+end
+
+function ${1:WorldEntity}:touchDown(touches)
+  BaseClass.touchDown(self, touches)
+  print("${1:WorldEntity}:touchDown(touches)")
+end
+
+function ${1:WorldEntity}:touchUp(touches)
+  BaseClass.touchUp(self, touches)
+  print("${1:WorldEntity}:touchUp(touches)")
+end
+
+function ${1:WorldEntity}:touchMove(touches)
+  BaseClass.touchMove(self, touches)
+  print("${1:WorldEntity}:touchMove(touches)")
+end
+
+function ${1:WorldEntity}:touchCancelled(touches)
+  BaseClass.touchCancelled(self, touches)
+  print("${1:WorldEntity}:touchCancelled(touches)")
+end
+
+function ${1:WorldEntity}:pause()
+  BaseClass.pause(self)
+  print("${1:WorldEntity}:pause()")
+end
+
+function ${1:WorldEntity}:unPause()
+  BaseClass.unPause(self)
+  print("${1:WorldEntity}:unPause()")
+end
+
+function ${1:WorldEntity}:keyboardShow()
+  BaseClass.keyboardShow(self)
+  print("${1:WorldEntity}:keyboardShow()")
+end
+
+function ${1:WorldEntity}:keyboardCancel()
+  BaseClass.keyboardCancel(self)
+  print("${1:WorldEntity}:keyboardCancel()")
+end
+
+function ${1:WorldEntity}:keyboardReturn(text)
+  BaseClass.keyboardReturn(self, text)
+  print("${1:WorldEntity}:keyboardReturn(text)")
+end
+
+function ${1:WorldEntity}:willResignActive()
+  BaseClass.willResignActive(self)
+  print("${1:WorldEntity}:willResignActive()")
+end
+
+function ${1:WorldEntity}:didBecomeActive()
+  BaseClass.didBecomeActive(self)
+  print("${1:WorldEntity}:didBecomeActive()")
+end
+
+function ${1:WorldEntity}:didEnterBackground()
+  BaseClass.didEnterBackground(self)
+  print("${1:WorldEntity}:didEnterBackground()")
+end
+
+function ${1:WorldEntity}:willEnterForeground()
+  BaseClass.willEnterForeground(self)
+  print("${1:WorldEntity}:willEnterForeground()")
+end
+
+function ${1:WorldEntity}:willTerminate()
+  BaseClass.willTerminate(self)
+  print("${1:WorldEntity}:willTerminate()")
+end
+
+function ${1:WorldEntity}:interrupt()
+  BaseClass.interrupt(self)
+  print("${1:WorldEntity}:interrupt()")
+end
+
+function ${1:WorldEntity}:resumeInterrupt()
+  BaseClass.resumeInterrupt(self)
+  print("${1:WorldEntity}:resumeInterrupt()")
+end
+
+function ${1:WorldEntity}:receivedMemoryWarning()
+  BaseClass.receivedMemoryWarning(self)
+  print("${1:WorldEntity}:receivedMemoryWarning()")
+end
+
+--#############################################################################
+--End Custom Code
+--#############################################################################
+
+--#############################################################################
+--DO NOT EDIT BELOW
+--#############################################################################
+
+setmetatable(${1:WorldEntity}, {
+    __index = BaseClass,
+    __call = function (cls, ...)
+      local self = setmetatable({}, cls)
+      --Create the base first
+      BaseClass._create(self, ...)
+      self:_create(...)
+      return self
+    end,
+  })
+
+function ${1:WorldEntity}:className()
+  return "${1:WorldEntity}"
+end
+
+function ${1:WorldEntity}:class()
+  return self
+end
+
+function ${1:WorldEntity}:superClass()
+  return BaseClass
+end
+
+function ${1:WorldEntity}:__gc()
+  --Destroy derived class first
+  ${1:WorldEntity}._destroy(self)
+  --Destroy base class after derived class
+  BaseClass._destroy(self)
+end
+
+function ${1:WorldEntity}:__tostring()
+  local ret = self:className() .. " =\n{\n"
+
+  for pos,val in pairs(self) do
+    ret = ret .. "\t" .. "["..pos.."]" .. " => " .. type(val) .. " = " .. tostring(val) .. "\n"
+  end
+
+  ret = ret .. "\n\t" .. tostring_r(BaseClass) .. "\n}"
+  return ret .. "\n\t" .. tostring_r(getmetatable(self)) .. "\n}"
+end
+
+function ${1:WorldEntity}:_destroy()
+  assert(not self.__${1:WorldEntity}CalledLoad, "Must unload before you destroy")
+  __dtor(self)
+end
+
+function ${1:WorldEntity}:_create(init)
+  self.__${1:WorldEntity}CalledLoad = false
+  __ctor(self, init)
+end
+
+function ${1:WorldEntity}:load()
+  --load base first
+  BaseClass.load(self)
+
+  --load derived last...
+  __load(self)
+
+  self.__${1:WorldEntity}CalledLoad = true
+end
+
+function ${1:WorldEntity}:unLoad()
+  assert(self.__${1:WorldEntity}CalledLoad, "Must load before unloading")
+
+  --unload derived first...
+  __unLoad(self)
+  self.__${1:WorldEntity}CalledLoad = false
+
+  --unload base last...
+  BaseClass.unLoad(self)
+end
+
+return ${1:WorldEntity}
+
+
+Hello, ${1:this} is a ${2:snippet}.
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>worldEntity</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.lua</scope>
+</snippet>

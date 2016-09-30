@@ -1,0 +1,186 @@
+<snippet>
+	<content><![CDATA[
+local BaseClass = require "NJLI.STATEMACHINE.NodeEntityState"
+
+local ${1:NodeEntityState} = {}
+${1:NodeEntityState}.__index = ${1:NodeEntityState}
+
+--#############################################################################
+--DO NOT EDIT ABOVE
+--#############################################################################
+
+--#############################################################################
+--Begin Custom Code
+--Required local functions:
+-- __ctor()
+-- __dtor()
+-- __load()
+-- __unLoad()
+--#############################################################################
+
+local __ctor = function(self, init)
+  --TODO: construct this Entity
+end
+
+local __dtor = function(self)
+  --TODO: destruct this Entity
+end
+
+local __load = function(self)
+  --TODO: load this Entity
+end
+
+local __unLoad = function(self)
+  --TODO: unload this Entity
+end
+
+--############################################################################# 
+
+function ${1:NodeEntityState}:enter()
+	BaseClass.enter(self)
+    print("${1:NodeEntityState}:enter()")
+end
+
+function ${1:NodeEntityState}:update(timeStep)
+	BaseClass.update(self, timeStep)
+    print("${1:NodeEntityState}:update(timeStep)")
+end
+
+function ${1:NodeEntityState}:exit()
+	BaseClass.exit(self)
+    print("${1:NodeEntityState}:exit()")
+end
+
+function ${1:NodeEntityState}:onMessage()
+	BaseClass.onMessage(self)
+    print("${1:NodeEntityState}:onMessage()")
+end
+
+function ${1:NodeEntityState}:touchDown(rayContact)
+	BaseClass.touchDown(self, rayContact)
+    print("${1:NodeEntityState}:touchDown(rayContact)")
+end
+
+function ${1:NodeEntityState}:touchUp(rayContact)
+	BaseClass.touchUp(self, rayContact)
+    print("${1:NodeEntityState}:touchUp(rayContact)")
+end
+
+function ${1:NodeEntityState}:touchMove(rayContact)
+	BaseClass.touchMove(self, rayContact)
+    print("${1:NodeEntityState}:touchMove(rayContact)")
+end
+
+function ${1:NodeEntityState}:touchCancelled(rayContact)
+	BaseClass.touchCancelled(self, rayContact)
+    print("${1:NodeEntityState}:touchCancelled(rayContact)")
+end
+
+function ${1:NodeEntityState}:collide(otherNode, collisionPoint)
+	BaseClass.collide(self, collisionPoint)
+    print("${1:NodeEntityState}:collide(otherNode, collisionPoint)")
+end
+
+function ${1:NodeEntityState}:near(otherNode)
+	BaseClass.near(self, otherNode)
+    print("${1:NodeEntityState}:near(otherNode)")
+end
+
+function ${1:NodeEntityState}:actionUpdate(action, timeStep)
+	BaseClass.actionUpdate(self, timeStep)
+    print("${1:NodeEntityState}:actionUpdate(action, timeStep)")
+end
+
+function ${1:NodeEntityState}:actionComplete(action)
+	BaseClass.actionComplete(self, action)
+    print("${1:NodeEntityState}:actionComplete(action)")
+end
+
+--#############################################################################
+--End Custom Code
+--#############################################################################
+
+--#############################################################################
+--DO NOT EDIT BELOW
+--#############################################################################
+
+setmetatable(${1:NodeEntityState}, {
+    __index = BaseClass,
+    __call = function (cls, ...)
+      local self = setmetatable({}, cls)
+      --Create the base first
+      BaseClass._create(self, ...)
+      self:_create(...)
+      return self
+    end,
+  })
+
+function ${1:NodeEntityState}:className()
+  return "${1:NodeEntityState}"
+end
+
+function ${1:NodeEntityState}:class()
+  return self
+end
+
+function ${1:NodeEntityState}:superClass()
+  return BaseClass
+end
+
+function ${1:NodeEntityState}:__gc()
+  --Destroy derived class first
+  ${1:NodeEntityState}._destroy(self)
+  --Destroy base class after derived class
+  BaseClass._destroy(self)
+end
+
+function ${1:NodeEntityState}:__tostring()
+  local ret = self:className() .. " =\n{\n"
+  
+  for pos,val in pairs(self) do 
+    ret = ret .. "\t" .. "["..pos.."]" .. " => " .. type(val) .. " = " .. tostring(val) .. "\n"
+  end
+
+  ret = ret .. "\n\t" .. tostring_r(BaseClass) .. "\n}"
+  return ret .. "\n\t" .. tostring_r(getmetatable(self)) .. "\n}"
+end
+
+function ${1:NodeEntityState}:_destroy()
+  assert(not self.__${1:NodeEntityState}CalledLoad, "Must unload before you destroy")
+  __dtor(self)
+end
+
+function ${1:NodeEntityState}:_create(init)
+  self.__${1:NodeEntityState}CalledLoad = false
+  __ctor(self, init)
+end
+
+function ${1:NodeEntityState}:load()
+  --load base first
+  BaseClass.load(self)
+
+  --load derived last...
+  __load(self)
+
+  self.__${1:NodeEntityState}CalledLoad = true
+end
+
+function ${1:NodeEntityState}:unLoad()
+  assert(self.__${1:NodeEntityState}CalledLoad, "Must load before unloading")
+
+  --unload derived first...
+  __unLoad(self)
+  self.__${1:NodeEntityState}CalledLoad = false
+
+  --unload base last...
+  BaseClass.unLoad(self)
+end
+
+return ${1:NodeEntityState}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>nodeEntityState</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.lua</scope>
+</snippet>

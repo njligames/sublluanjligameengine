@@ -12,20 +12,20 @@
                 "children":
                 [
                     {
-                        "caption": "Lua NJLI”,
+                        "caption": "Lua NJLI",
                         "children":
                         [
                             {
                                 "command": "open_file", "args":
                                 {
-                                    "file": "${packages}/Lua NJLI/LuaNJLI.sublime-settings"
+                                    "file": "${packages}/Lua Love/LuaLove.sublime-settings"
                                 },
                                 "caption": "Settings – Default"
                             },
                             {
                                 "command": "open_file", "args":
                                 {
-                                    "file": "${packages}/User/LuaNJLI.sublime-settings"
+                                    "file": "${packages}/User/LuaLove.sublime-settings"
                                 },
                                 "caption": "Settings – User"
                             },

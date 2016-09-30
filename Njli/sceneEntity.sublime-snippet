@@ -1,0 +1,224 @@
+<snippet>
+	<content><![CDATA[
+local BaseClass = require "NJLI.STATEMACHINE.SceneEntity"
+
+local ${1:SceneEntity} = {}
+${1:SceneEntity}.__index = ${1:SceneEntity}
+
+--#############################################################################
+--DO NOT EDIT ABOVE
+--#############################################################################
+
+--#############################################################################
+--Begin Custom Code
+--Required local functions:
+-- __ctor()
+-- __dtor()
+-- __load()
+-- __unLoad()
+--#############################################################################
+
+local __ctor = function(self, init)
+
+  --TODO: construct this Entity
+end
+
+local __dtor = function(self)
+  --TODO: destruct this Entity
+end
+
+local __load = function(self)
+  --TODO: load this Entity
+end
+
+local __unLoad = function(self)
+  --TODO: unload this Entity
+end
+
+--#############################################################################
+
+function ${1:SceneEntity}:enter()
+  BaseClass.enter(self)
+  print("${1:SceneEntity}:enter()")
+end
+
+function ${1:SceneEntity}:update(timeStep)
+  BaseClass.update(self, timeStep)
+  print("${1:SceneEntity}:update("..timeStep..")")
+end
+
+function ${1:SceneEntity}:exit()
+  BaseClass.exit(self)
+  print("${1:SceneEntity}:exit()")
+end
+
+function ${1:SceneEntity}:onMessage(message)
+  BaseClass.onMessage(self, message)
+  print("${1:SceneEntity}:onMessage("..tostring(message)")")
+end
+
+function ${1:SceneEntity}:touchDown(touches)
+  BaseClass.touchDown(self, touches)
+  print("${1:SceneEntity}:touchDown("..tostring(touches) .. ")")
+end
+
+function ${1:SceneEntity}:touchUp(touches)
+  BaseClass.touchUp(self, touches)
+  print("${1:SceneEntity}:touchUp("..tostring(touches) ..")")
+end
+
+function ${1:SceneEntity}:touchMove(touches)
+  BaseClass.touchMove(self, touches)
+  print("${1:SceneEntity}:touchMove("..tostring(touches) ..")")
+end
+
+function ${1:SceneEntity}:touchCancelled(touches)
+  BaseClass.touchCancelled(self, touches)
+  print("${1:SceneEntity}:touchCancelled("..tostring(touches) ..")")
+end
+
+function ${1:SceneEntity}:renderHUD()
+  BaseClass.renderHUD(self)
+  print("${1:SceneEntity}:renderHUD()")
+end
+
+function ${1:SceneEntity}:pause()
+  BaseClass.pause(self)
+  print("${1:SceneEntity}:pause()")
+end
+
+function ${1:SceneEntity}:unPause()
+  BaseClass.unPause(self)
+  print("${1:SceneEntity}:unPause()")
+end
+
+function ${1:SceneEntity}:willResignActive()
+  BaseClass.willResignActive(self)
+  print("${1:SceneEntity}:willResignActive()")
+end
+
+function ${1:SceneEntity}:didBecomeActive()
+  BaseClass.didBecomeActive(self)
+  print("${1:SceneEntity}:didBecomeActive()")
+end
+
+function ${1:SceneEntity}:didEnterBackground()
+  BaseClass.didEnterBackground(self)
+  print("${1:SceneEntity}:didEnterBackground()")
+end
+
+function ${1:SceneEntity}:willEnterForeground()
+  BaseClass.willEnterForeground(self)
+  print("${1:SceneEntity}:willEnterForeground()")
+end
+
+function ${1:SceneEntity}:willTerminate()
+  BaseClass.willTerminate(self)
+  print("${1:SceneEntity}:willTerminate()")
+end
+
+function ${1:SceneEntity}:interrupt()
+  BaseClass.interrupt(self)
+  print("${1:SceneEntity}:interrupt()")
+end
+
+function ${1:SceneEntity}:resumeInterrupt()
+  BaseClass.resumeInterrupt(self)
+  print("${1:SceneEntity}:resumeInterrupt()")
+end
+
+function ${1:SceneEntity}:receivedMemoryWarning()
+  BaseClass.receivedMemoryWarning(self)
+  print("${1:SceneEntity}:receivedMemoryWarning()")
+end
+
+--#############################################################################
+--End Custom Code
+--#############################################################################
+
+--#############################################################################
+--DO NOT EDIT BELOW
+--#############################################################################
+
+setmetatable(${1:SceneEntity}, {
+    __index = BaseClass,
+    __call = function (cls, ...)
+      local self = setmetatable({}, cls)
+      --Create the base first
+      BaseClass._create(self, ...)
+      self:_create(...)
+      return self
+    end,
+  })
+
+function ${1:SceneEntity}:className()
+  return "${1:SceneEntity}"
+end
+
+function ${1:SceneEntity}:class()
+  return self
+end
+
+function ${1:SceneEntity}:superClass()
+  return BaseClass
+end
+
+function ${1:SceneEntity}:__gc()
+  --Destroy derived class first
+  ${1:SceneEntity}._destroy(self)
+  --Destroy base class after derived class
+  BaseClass._destroy(self)
+end
+
+function ${1:SceneEntity}:__tostring()
+  local ret = self:className() .. " =\n{\n"
+
+  for pos,val in pairs(self) do
+    ret = ret .. "\t" .. "["..pos.."]" .. " => " .. type(val) .. " = " .. tostring(val) .. "\n"
+  end
+
+  ret = ret .. "\n\t" .. tostring_r(BaseClass) .. "\n}"
+  return ret .. "\n\t" .. tostring_r(getmetatable(self)) .. "\n}"
+end
+
+function ${1:SceneEntity}:_destroy()
+  assert(not self.__${1:SceneEntity}CalledLoad, "Must unload before you destroy")
+  __dtor(self)
+end
+
+function ${1:SceneEntity}:_create(init)
+  self.__${1:SceneEntity}CalledLoad = false
+  __ctor(self, init)
+end
+
+function ${1:SceneEntity}:load()
+  --load base first
+  BaseClass.load(self)
+
+  --load derived last...
+  __load(self)
+
+  self.__${1:SceneEntity}CalledLoad = true
+end
+
+function ${1:SceneEntity}:unLoad()
+  assert(self.__${1:SceneEntity}CalledLoad, "Must load before unloading")
+
+  --unload derived first...
+  __unLoad(self)
+  self.__${1:SceneEntity}CalledLoad = false
+
+  --unload base last...
+  BaseClass.unLoad(self)
+end
+
+return ${1:SceneEntity}
+
+
+Hello, ${1:this} is a ${2:snippet}.
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>sceneEntity</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.lua</scope>
+</snippet>

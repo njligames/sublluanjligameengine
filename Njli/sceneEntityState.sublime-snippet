@@ -1,0 +1,236 @@
+<snippet>
+	<content><![CDATA[
+local BaseClass = require "NJLI.STATEMACHINE.SceneEntityState"
+
+local ${1:SceneEntityState} = {}
+${1:SceneEntityState}.__index = ${1:SceneEntityState}
+
+--#############################################################################
+--DO NOT EDIT ABOVE
+--#############################################################################
+
+--#############################################################################
+--Begin Custom Code
+--Required local functions:
+-- __ctor()
+-- __dtor()
+-- __load()
+-- __unLoad()
+--#############################################################################
+
+local __ctor = function(self, init)
+  --TODO: construct this Entity
+end
+
+local __dtor = function(self)
+  --TODO: destruct this Entity
+end
+
+local __load = function(self)
+  --TODO: load this Entity
+end
+
+local __unLoad = function(self)
+  --TODO: unload this Entity
+end
+
+--############################################################################# 
+
+function ${1:SceneEntityState}:enter()
+    BaseClass.enter(self)
+    print("${1:SceneEntityState}:enter()")
+end
+
+function ${1:SceneEntityState}:update(timeStep)
+    BaseClass.update(self, timeStep)
+    print("${1:SceneEntityState}:update(timeStep)")
+end
+
+function ${1:SceneEntityState}:exit()
+    BaseClass.exit(self)
+    print("${1:SceneEntityState}:exit()")
+end
+
+function ${1:SceneEntityState}:onMessage(message)
+    BaseClass.onMessage(self, message)
+    print("${1:SceneEntityState}:onMessage(message)")
+end
+
+function ${1:SceneEntityState}:renderHUD()
+    BaseClass.renderHUD(self)
+    print("${1:SceneEntityState}:renderHUD()")
+end
+
+function ${1:SceneEntityState}:touchDown(touches)
+    BaseClass.touchDown(self, touches)
+    print("${1:SceneEntityState}:touchDown(touches)")
+end
+
+function ${1:SceneEntityState}:touchUp(touches)
+    BaseClass.touchUp(self, touches)
+    print("${1:SceneEntityState}:touchUp(touches)")
+end
+
+function ${1:SceneEntityState}:touchMove(touches)
+    BaseClass.touchMove(self, touches)
+    print("${1:SceneEntityState}:touchMove(touches)")
+end
+
+function ${1:SceneEntityState}:touchCancelled(touches)
+    BaseClass.touchCancelled(self, touches)
+    print("${1:SceneEntityState}:touchCancelled(touches)")
+end
+
+function ${1:SceneEntityState}:pause()
+    BaseClass.pause(self)
+    print("${1:SceneEntityState}:pause()")
+end
+
+function ${1:SceneEntityState}:unPause()
+    BaseClass.unPause(self)
+    print("${1:SceneEntityState}:unPause()")
+end
+
+function ${1:SceneEntityState}:keyboardShow()
+    BaseClass.keyboardShow(self)
+    print("${1:SceneEntityState}:keyboardShow()")
+end
+
+function ${1:SceneEntityState}:keyboardCancel()
+    BaseClass.keyboardCancel(self)
+    print("${1:SceneEntityState}:keyboardCancel()")
+end
+
+function ${1:SceneEntityState}:keyboardReturn(text)
+    BaseClass.keyboardReturn(self, text)
+    print("${1:SceneEntityState}:keyboardReturn(text)")
+end
+
+function ${1:SceneEntityState}:willResignActive()
+    BaseClass.willResignActive(self)
+    print("${1:SceneEntityState}:willResignActive()")
+end
+
+function ${1:SceneEntityState}:didBecomeActive()
+    BaseClass.didBecomeActive(self)
+    print("${1:SceneEntityState}:didBecomeActive()")
+end
+
+function ${1:SceneEntityState}:didEnterBackground()
+    BaseClass.didEnterBackground(self)
+    print("${1:SceneEntityState}:didEnterBackground()")
+end
+
+function ${1:SceneEntityState}:willEnterForeground()
+    BaseClass.willEnterForeground(self)
+    print("${1:SceneEntityState}:willEnterForeground()")
+end
+
+function ${1:SceneEntityState}:willTerminate()
+    BaseClass.willTerminate(self)
+    print("${1:SceneEntityState}:willTerminate()")
+end
+
+function ${1:SceneEntityState}:interrupt()
+    BaseClass.interrupt(self)
+    print("${1:SceneEntityState}:interrupt()")
+end
+
+function ${1:SceneEntityState}:resumeInterrupt()
+    BaseClass.resumeInterrupt(self)
+    print("${1:SceneEntityState}:resumeInterrupt()")
+end
+
+function ${1:SceneEntityState}:receivedMemoryWarning()
+    BaseClass.receivedMemoryWarning(self)
+    print("${1:SceneEntityState}:receivedMemoryWarning()")
+end
+
+--#############################################################################
+--End Custom Code
+--#############################################################################
+
+--#############################################################################
+--DO NOT EDIT BELOW
+--#############################################################################
+
+setmetatable(${1:SceneEntityState}, {
+    __index = BaseClass,
+    __call = function (cls, ...)
+      local self = setmetatable({}, cls)
+      --Create the base first
+      BaseClass._create(self, ...)
+      self:_create(...)
+      return self
+    end,
+  })
+
+function ${1:SceneEntityState}:className()
+  return "${1:SceneEntityState}"
+end
+
+function ${1:SceneEntityState}:class()
+  return self
+end
+
+function ${1:SceneEntityState}:superClass()
+  return BaseClass
+end
+
+function ${1:SceneEntityState}:__gc()
+  --Destroy derived class first
+  ${1:SceneEntityState}._destroy(self)
+  --Destroy base class after derived class
+  BaseClass._destroy(self)
+end
+
+function ${1:SceneEntityState}:__tostring()
+  local ret = self:className() .. " =\n{\n"
+  
+  for pos,val in pairs(self) do 
+    ret = ret .. "\t" .. "["..pos.."]" .. " => " .. type(val) .. " = " .. tostring(val) .. "\n"
+  end
+
+  ret = ret .. "\n\t" .. tostring_r(BaseClass) .. "\n}"
+  return ret .. "\n\t" .. tostring_r(getmetatable(self)) .. "\n}"
+end
+
+function ${1:SceneEntityState}:_destroy()
+  assert(not self.__${1:SceneEntityState}CalledLoad, "Must unload before you destroy")
+  __dtor(self)
+end
+
+function ${1:SceneEntityState}:_create(init)
+  self.__${1:SceneEntityState}CalledLoad = false
+  __ctor(self, init)
+end
+
+function ${1:SceneEntityState}:load()
+  --load base first
+  BaseClass.load(self)
+
+  --load derived last...
+  __load(self)
+
+  self.__${1:SceneEntityState}CalledLoad = true
+end
+
+function ${1:SceneEntityState}:unLoad()
+  assert(self.__${1:SceneEntityState}CalledLoad, "Must load before un${1:SceneEntityState}")
+
+  --unload derived first...
+  __unLoad(self)
+  self.__${1:SceneEntityState}CalledLoad = false
+
+  --unload base last...
+  BaseClass.unLoad(self)
+end
+
+return ${1:SceneEntityState}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>sceneEntityState</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.lua</scope>
+</snippet>

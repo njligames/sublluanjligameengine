@@ -7,12 +7,12 @@
 		{	"name": "Run",
 			"cmd": ["luajit", "$file"]
 		},
-		{	"name": "Love2D",
+		{	"name": "NJLIExport",
 			"shell": true,
-			"cmd": ["/Applications/love.app/Contents/MacOS/love", "$project_path"],
+			"cmd": ["make", "$project_path"],
 			"osx":
 			{
-				"cmd": ["/Applications/love.app/Contents/MacOS/love $project_path"]
+				"cmd": ["make $project_path"]
 			}
 		},
 		{   "name": "ldoc: File",

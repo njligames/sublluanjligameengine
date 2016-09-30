@@ -1,4 +1,7 @@
 {
   "scope":"source.lua",
-  "completions":[]
+  "completions":[{
+      "contents":"${1:model} = love.audio.getDistanceModel()",
+      "trigger":"love.audio.getDistanceModel"
+    }]
 }

@@ -1,6 +1,5 @@
 <snippet>
   <content><![CDATA[
-Hello, ${1:this} is a ${2:snippet}.
 local BaseClass = require "${2:BaseClass}"
 
 local ${1:DerivedClass} = {}
@@ -34,6 +33,12 @@ end
 local __unLoad = function(self)
   --TODO: unload this Entity
 end
+
+--############################################################################# 
+
+--TODO: write function here for ${1:DerivedClass}
+--function ${1:DerivedClass}:${3:somefunction}()
+--end
 
 --#############################################################################
 --End Custom Code
