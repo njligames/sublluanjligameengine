@@ -39,97 +39,118 @@ end
 
 function ${1:SceneEntity}:enter()
   BaseClass.enter(self)
-  print("${1:SceneEntity}:enter()")
 end
 
 function ${1:SceneEntity}:update(timeStep)
   BaseClass.update(self, timeStep)
-  print("${1:SceneEntity}:update("..timeStep..")")
 end
 
 function ${1:SceneEntity}:exit()
   BaseClass.exit(self)
-  print("${1:SceneEntity}:exit()")
 end
 
 function ${1:SceneEntity}:onMessage(message)
   BaseClass.onMessage(self, message)
-  print("${1:SceneEntity}:onMessage("..tostring(message)")")
-end
-
-function ${1:SceneEntity}:touchDown(touches)
-  BaseClass.touchDown(self, touches)
-  print("${1:SceneEntity}:touchDown("..tostring(touches) .. ")")
-end
-
-function ${1:SceneEntity}:touchUp(touches)
-  BaseClass.touchUp(self, touches)
-  print("${1:SceneEntity}:touchUp("..tostring(touches) ..")")
-end
-
-function ${1:SceneEntity}:touchMove(touches)
-  BaseClass.touchMove(self, touches)
-  print("${1:SceneEntity}:touchMove("..tostring(touches) ..")")
-end
-
-function ${1:SceneEntity}:touchCancelled(touches)
-  BaseClass.touchCancelled(self, touches)
-  print("${1:SceneEntity}:touchCancelled("..tostring(touches) ..")")
 end
 
 function ${1:SceneEntity}:renderHUD()
   BaseClass.renderHUD(self)
-  print("${1:SceneEntity}:renderHUD()")
+end
+
+function ${1:SceneEntity}:touchesDown(touches)
+  BaseClass.touchesDown(self, touches)
+end
+
+function ${1:SceneEntity}:touchesUp(touches)
+  BaseClass.touchesUp(self, touches)
+end
+
+function ${1:SceneEntity}:touchesMove(touches)
+  BaseClass.touchesMove(self, touches)
+end
+
+function ${1:SceneEntity}:touchesCancelled(touches)
+  BaseClass.touchesCancelled(self, touches)
+end
+
+function ${1:SceneEntity}:touchDown(touches)
+  BaseClass.touchDown(self, touches)
+end
+
+function ${1:SceneEntity}:touchUp(touches)
+  BaseClass.touchUp(self, touches)
+end
+
+function ${1:SceneEntity}:touchMove(touches)
+  BaseClass.touchMove(self, touches)
+end
+
+function ${1:SceneEntity}:touchCancelled(touches)
+  BaseClass.touchCancelled(self, touches)
+end
+
+function ${1:SceneEntity}:mouseDown(mouse)
+  BaseClass.mouseDown(self, mouse)
+end
+
+function ${1:SceneEntity}:mouseUp(mouse)
+  BaseClass.mouseUp(self, mouse)
+end
+
+function ${1:SceneEntity}:mouseMove(mouse)
+  BaseClass.mouseMove(self, mouse)
 end
 
 function ${1:SceneEntity}:pause()
   BaseClass.pause(self)
-  print("${1:SceneEntity}:pause()")
 end
 
 function ${1:SceneEntity}:unPause()
   BaseClass.unPause(self)
-  print("${1:SceneEntity}:unPause()")
+end
+
+function ${1:SceneEntity}:keyboardShow()
+  BaseClass.keyboardShow(self)
+end
+
+function ${1:SceneEntity}:keyboardCancel()
+  BaseClass.keyboardCancel(self)
+end
+
+function ${1:SceneEntity}:keyboardReturn(text)
+  BaseClass.keyboardReturn(self, text)
 end
 
 function ${1:SceneEntity}:willResignActive()
   BaseClass.willResignActive(self)
-  print("${1:SceneEntity}:willResignActive()")
 end
 
 function ${1:SceneEntity}:didBecomeActive()
   BaseClass.didBecomeActive(self)
-  print("${1:SceneEntity}:didBecomeActive()")
 end
 
 function ${1:SceneEntity}:didEnterBackground()
   BaseClass.didEnterBackground(self)
-  print("${1:SceneEntity}:didEnterBackground()")
 end
 
 function ${1:SceneEntity}:willEnterForeground()
   BaseClass.willEnterForeground(self)
-  print("${1:SceneEntity}:willEnterForeground()")
 end
 
 function ${1:SceneEntity}:willTerminate()
   BaseClass.willTerminate(self)
-  print("${1:SceneEntity}:willTerminate()")
 end
 
 function ${1:SceneEntity}:interrupt()
   BaseClass.interrupt(self)
-  print("${1:SceneEntity}:interrupt()")
 end
 
 function ${1:SceneEntity}:resumeInterrupt()
   BaseClass.resumeInterrupt(self)
-  print("${1:SceneEntity}:resumeInterrupt()")
 end
 
 function ${1:SceneEntity}:receivedMemoryWarning()
   BaseClass.receivedMemoryWarning(self)
-  print("${1:SceneEntity}:receivedMemoryWarning()")
 end
 
 --#############################################################################
@@ -216,7 +237,7 @@ return ${1:SceneEntity}
 
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	<tabTrigger>sceneEntity</tabTrigger>
+	<tabTrigger>sceneEntityChild</tabTrigger>
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
 	<scope>source.lua</scope>
 </snippet>

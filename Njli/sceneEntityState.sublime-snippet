@@ -37,113 +37,119 @@ end
 --############################################################################# 
 
 function ${1:SceneEntityState}:enter()
-    BaseClass.enter(self)
-    print("${1:SceneEntityState}:enter()")
+  BaseClass.enter(self)
 end
 
 function ${1:SceneEntityState}:update(timeStep)
-    BaseClass.update(self, timeStep)
-    print("${1:SceneEntityState}:update(timeStep)")
+  BaseClass.update(self, timeStep)
 end
 
 function ${1:SceneEntityState}:exit()
-    BaseClass.exit(self)
-    print("${1:SceneEntityState}:exit()")
+  BaseClass.exit(self)
 end
 
 function ${1:SceneEntityState}:onMessage(message)
-    BaseClass.onMessage(self, message)
-    print("${1:SceneEntityState}:onMessage(message)")
+  BaseClass.onMessage(self, message)
 end
 
 function ${1:SceneEntityState}:renderHUD()
-    BaseClass.renderHUD(self)
-    print("${1:SceneEntityState}:renderHUD()")
+  BaseClass.renderHUD(self)
+end
+
+function ${1:SceneEntityState}:touchesDown(touches)
+  BaseClass.touchesDown(self, touches)
+end
+
+function ${1:SceneEntityState}:touchesUp(touches)
+  BaseClass.touchesUp(self, touches)
+end
+
+function ${1:SceneEntityState}:touchesMove(touches)
+  BaseClass.touchesMove(self, touches)
+end
+
+function ${1:SceneEntityState}:touchesCancelled(touches)
+  BaseClass.touchesCancelled(self, touches)
 end
 
 function ${1:SceneEntityState}:touchDown(touches)
-    BaseClass.touchDown(self, touches)
-    print("${1:SceneEntityState}:touchDown(touches)")
+  BaseClass.touchDown(self, touches)
 end
 
 function ${1:SceneEntityState}:touchUp(touches)
-    BaseClass.touchUp(self, touches)
-    print("${1:SceneEntityState}:touchUp(touches)")
+  BaseClass.touchUp(self, touches)
 end
 
 function ${1:SceneEntityState}:touchMove(touches)
-    BaseClass.touchMove(self, touches)
-    print("${1:SceneEntityState}:touchMove(touches)")
+  BaseClass.touchMove(self, touches)
 end
 
 function ${1:SceneEntityState}:touchCancelled(touches)
-    BaseClass.touchCancelled(self, touches)
-    print("${1:SceneEntityState}:touchCancelled(touches)")
+  BaseClass.touchCancelled(self, touches)
+end
+
+function ${1:SceneEntityState}:mouseDown(mouse)
+  BaseClass.mouseDown(self, mouse)
+end
+
+function ${1:SceneEntityState}:mouseUp(mouse)
+  BaseClass.mouseUp(self, mouse)
+end
+
+function ${1:SceneEntityState}:mouseMove(mouse)
+  BaseClass.mouseMove(self, mouse)
 end
 
 function ${1:SceneEntityState}:pause()
-    BaseClass.pause(self)
-    print("${1:SceneEntityState}:pause()")
+  BaseClass.pause(self)
 end
 
 function ${1:SceneEntityState}:unPause()
-    BaseClass.unPause(self)
-    print("${1:SceneEntityState}:unPause()")
+  BaseClass.unPause(self)
 end
 
 function ${1:SceneEntityState}:keyboardShow()
-    BaseClass.keyboardShow(self)
-    print("${1:SceneEntityState}:keyboardShow()")
+  BaseClass.keyboardShow(self)
 end
 
 function ${1:SceneEntityState}:keyboardCancel()
-    BaseClass.keyboardCancel(self)
-    print("${1:SceneEntityState}:keyboardCancel()")
+  BaseClass.keyboardCancel(self)
 end
 
 function ${1:SceneEntityState}:keyboardReturn(text)
-    BaseClass.keyboardReturn(self, text)
-    print("${1:SceneEntityState}:keyboardReturn(text)")
+  BaseClass.keyboardReturn(self, text)
 end
 
 function ${1:SceneEntityState}:willResignActive()
-    BaseClass.willResignActive(self)
-    print("${1:SceneEntityState}:willResignActive()")
+  BaseClass.willResignActive(self)
 end
 
 function ${1:SceneEntityState}:didBecomeActive()
-    BaseClass.didBecomeActive(self)
-    print("${1:SceneEntityState}:didBecomeActive()")
+  BaseClass.didBecomeActive(self)
 end
 
 function ${1:SceneEntityState}:didEnterBackground()
-    BaseClass.didEnterBackground(self)
-    print("${1:SceneEntityState}:didEnterBackground()")
+  BaseClass.didEnterBackground(self)
 end
 
 function ${1:SceneEntityState}:willEnterForeground()
-    BaseClass.willEnterForeground(self)
-    print("${1:SceneEntityState}:willEnterForeground()")
+  BaseClass.willEnterForeground(self)
 end
 
 function ${1:SceneEntityState}:willTerminate()
-    BaseClass.willTerminate(self)
-    print("${1:SceneEntityState}:willTerminate()")
+  BaseClass.willTerminate(self)
 end
 
 function ${1:SceneEntityState}:interrupt()
-    BaseClass.interrupt(self)
-    print("${1:SceneEntityState}:interrupt()")
+  BaseClass.interrupt(self)
 end
 
 function ${1:SceneEntityState}:resumeInterrupt()
-    BaseClass.resumeInterrupt(self)
-    print("${1:SceneEntityState}:resumeInterrupt()")
+  BaseClass.resumeInterrupt(self)
 end
 
 function ${1:SceneEntityState}:receivedMemoryWarning()
-    BaseClass.receivedMemoryWarning(self)
-    print("${1:SceneEntityState}:receivedMemoryWarning()")
+  BaseClass.receivedMemoryWarning(self)
 end
 
 --#############################################################################
@@ -230,7 +236,7 @@ return ${1:SceneEntityState}
 
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	<tabTrigger>sceneEntityState</tabTrigger>
+	<tabTrigger>sceneEntityStateChild</tabTrigger>
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
 	<scope>source.lua</scope>
 </snippet>

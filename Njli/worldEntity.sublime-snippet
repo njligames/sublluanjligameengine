@@ -38,112 +38,118 @@ end
 
 function ${1:WorldEntity}:enter()
   BaseClass.enter(self)
-  print("${1:WorldEntity}:enter()")
 end
 
 function ${1:WorldEntity}:update(timeStep)
   BaseClass.update(self, timeStep)
-  print("${1:WorldEntity}:update(timeStep)")
 end
 
 function ${1:WorldEntity}:exit()
   BaseClass.exit(self)
-  print("${1:WorldEntity}:exit()")
 end
 
-function ${1:WorldEntity}:onMessage()
-  BaseClass.onMessage(self)
-  print("${1:WorldEntity}:onMessage()")
+function ${1:WorldEntity}:onMessage(message)
+  BaseClass.onMessage(self, message)
 end
 
 function ${1:WorldEntity}:renderHUD()
   BaseClass.renderHUD(self)
-  print("${1:WorldEntity}:renderHUD()")
+end
+
+function ${1:WorldEntity}:touchesDown(touches)
+  BaseClass.touchesDown(self, touches)
+end
+
+function ${1:WorldEntity}:touchesUp(touches)
+  BaseClass.touchesUp(self, touches)
+end
+
+function ${1:WorldEntity}:touchesMove(touches)
+  BaseClass.touchesMove(self, touches)
+end
+
+function ${1:WorldEntity}:touchesCancelled(touches)
+  BaseClass.touchesCancelled(self, touches)
 end
 
 function ${1:WorldEntity}:touchDown(touches)
   BaseClass.touchDown(self, touches)
-  print("${1:WorldEntity}:touchDown(touches)")
 end
 
 function ${1:WorldEntity}:touchUp(touches)
   BaseClass.touchUp(self, touches)
-  print("${1:WorldEntity}:touchUp(touches)")
 end
 
 function ${1:WorldEntity}:touchMove(touches)
   BaseClass.touchMove(self, touches)
-  print("${1:WorldEntity}:touchMove(touches)")
 end
 
 function ${1:WorldEntity}:touchCancelled(touches)
   BaseClass.touchCancelled(self, touches)
-  print("${1:WorldEntity}:touchCancelled(touches)")
+end
+
+function ${1:WorldEntity}:mouseDown(mouse)
+  BaseClass.mouseDown(self, mouse)
+end
+
+function ${1:WorldEntity}:mouseUp(mouse)
+  BaseClass.mouseUp(self, mouse)
+end
+
+function ${1:WorldEntity}:mouseMove(mouse)
+  BaseClass.mouseMove(self, mouse)
 end
 
 function ${1:WorldEntity}:pause()
   BaseClass.pause(self)
-  print("${1:WorldEntity}:pause()")
 end
 
 function ${1:WorldEntity}:unPause()
   BaseClass.unPause(self)
-  print("${1:WorldEntity}:unPause()")
 end
 
 function ${1:WorldEntity}:keyboardShow()
   BaseClass.keyboardShow(self)
-  print("${1:WorldEntity}:keyboardShow()")
 end
 
 function ${1:WorldEntity}:keyboardCancel()
   BaseClass.keyboardCancel(self)
-  print("${1:WorldEntity}:keyboardCancel()")
 end
 
 function ${1:WorldEntity}:keyboardReturn(text)
   BaseClass.keyboardReturn(self, text)
-  print("${1:WorldEntity}:keyboardReturn(text)")
 end
 
 function ${1:WorldEntity}:willResignActive()
   BaseClass.willResignActive(self)
-  print("${1:WorldEntity}:willResignActive()")
 end
 
 function ${1:WorldEntity}:didBecomeActive()
   BaseClass.didBecomeActive(self)
-  print("${1:WorldEntity}:didBecomeActive()")
 end
 
 function ${1:WorldEntity}:didEnterBackground()
   BaseClass.didEnterBackground(self)
-  print("${1:WorldEntity}:didEnterBackground()")
 end
 
 function ${1:WorldEntity}:willEnterForeground()
   BaseClass.willEnterForeground(self)
-  print("${1:WorldEntity}:willEnterForeground()")
 end
 
 function ${1:WorldEntity}:willTerminate()
   BaseClass.willTerminate(self)
-  print("${1:WorldEntity}:willTerminate()")
 end
 
 function ${1:WorldEntity}:interrupt()
   BaseClass.interrupt(self)
-  print("${1:WorldEntity}:interrupt()")
 end
 
 function ${1:WorldEntity}:resumeInterrupt()
   BaseClass.resumeInterrupt(self)
-  print("${1:WorldEntity}:resumeInterrupt()")
 end
 
 function ${1:WorldEntity}:receivedMemoryWarning()
   BaseClass.receivedMemoryWarning(self)
-  print("${1:WorldEntity}:receivedMemoryWarning()")
 end
 
 --#############################################################################
@@ -230,7 +236,7 @@ return ${1:WorldEntity}
 
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	<tabTrigger>worldEntity</tabTrigger>
+	<tabTrigger>worldEntityChild</tabTrigger>
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
 	<scope>source.lua</scope>
 </snippet>

@@ -38,62 +38,158 @@ end
 
 function ${1:NodeEntity}:enter()
   BaseClass.enter(self)
-  print("${1:NodeEntity}:enter()")
 end
 
 function ${1:NodeEntity}:update(timeStep)
   BaseClass.update(self, timeStep)
-  print("${1:NodeEntity}:update()")
 end
 
 function ${1:NodeEntity}:exit()
   BaseClass.exit(self)
-  print("${1:NodeEntity}:exit()")
 end
 
 function ${1:NodeEntity}:onMessage()
   BaseClass.onMessage(self)
-  print("${1:NodeEntity}:onMessage()")
+end
+
+function ${1:NodeEntity}:rayTouchesDown(rayContact)
+  BaseClass.rayTouchesDown(self, rayContact)
+end
+
+function ${1:NodeEntity}:rayTouchesUp(rayContact)
+  BaseClass.rayTouchesUp(self, rayContact)
+end
+
+function ${1:NodeEntity}:rayTouchesMove(rayContact)
+  BaseClass.rayTouchesMove(self, rayContact)
+end
+
+function ${1:NodeEntity}:rayTouchesCancelled(rayContact)
+  BaseClass.rayTouchesCancelled(self, rayContact)
+end
+
+function ${1:NodeEntity}:rayTouchesMissed(node)
+  BaseClass.rayTouchesMissed(self, node)
 end
 
 function ${1:NodeEntity}:rayTouchDown(rayContact)
   BaseClass.rayTouchDown(self, rayContact)
-  print("${1:NodeEntity}:enter()")
 end
 
 function ${1:NodeEntity}:rayTouchUp(rayContact)
   BaseClass.rayTouchUp(self, rayContact)
-  print("${1:NodeEntity}:enter()")
 end
 
 function ${1:NodeEntity}:rayTouchMove(rayContact)
   BaseClass.rayTouchMove(self, rayContact)
-  print("${1:NodeEntity}:enter()")
 end
 
 function ${1:NodeEntity}:rayTouchCancelled(rayContact)
   BaseClass.rayTouchCancelled(self, rayContact)
-  print("${1:NodeEntity}:enter()")
+end
+
+function ${1:NodeEntity}:rayTouchMissed(node)
+  BaseClass.rayTouchMissed(self, node)
+end
+
+function ${1:NodeEntity}:rayMouseDown(rayContact)
+  BaseClass.rayMouseDown(self, rayContact)
+end
+
+function ${1:NodeEntity}:rayMouseUp(rayContact)
+  BaseClass.rayMouseUp(self, rayContact)
+end
+
+function ${1:NodeEntity}:rayMouseMove(rayContact)
+  BaseClass.rayMouseMove(self, rayContact)
+end
+
+function ${1:NodeEntity}:rayMouseMissed(node)
+  BaseClass.rayMouseMissed(self, node)
 end
 
 function ${1:NodeEntity}:collide(otherNode, collisionPoint)
   BaseClass.collide(self, otherNode, collisionPoint)
-  print("${1:NodeEntity}:enter()")
 end
 
 function ${1:NodeEntity}:near(otherNode)
   BaseClass.near(self, otherNode)
-  print("${1:NodeEntity}:enter()")
 end
 
 function ${1:NodeEntity}:actionUpdate(action, timeStep)
   BaseClass.actionUpdate(self, action, timeStep)
-  print("${1:NodeEntity}:enter()")
 end
 
 function ${1:NodeEntity}:actionComplete(action)
   BaseClass.actionComplete(self, action)
-  print("${1:NodeEntity}:enter()")
+end
+
+function ${1:NodeEntity}:keyboardShow()
+  BaseClass.keyboardShow(self)
+end
+
+function ${1:NodeEntity}:keyboardCancel()
+  BaseClass.keyboardCancel(self)
+end
+
+function ${1:NodeEntity}:keyboardReturn()
+  BaseClass.keyboardReturn(self)
+end
+
+function ${1:NodeEntity}:renderHUD()
+  BaseClass.renderHUD(self)
+end
+
+function ${1:NodeEntity}:gamePause()
+  BaseClass.gamePause(self)
+end
+
+function ${1:NodeEntity}:gameUnPause()
+  BaseClass.gameUnPause(self)
+end
+
+function ${1:NodeEntity}:touchesDown(touches)
+  BaseClass.touchesDown(self, touches)
+end
+
+function ${1:NodeEntity}:touchesUp(touches)
+  BaseClass.touchesUp(self, touches)
+end
+
+function ${1:NodeEntity}:touchesMove(touches)
+  BaseClass.touchesMove(self, touches)
+end
+
+function ${1:NodeEntity}:touchesCancelled(touches)
+  BaseClass.touchesCancelled(self, touches)
+end
+
+function ${1:NodeEntity}:touchDown(touch)
+  BaseClass.touchDown(self, touch)
+end
+
+function ${1:NodeEntity}:touchUp(touch)
+  BaseClass.touchUp(self, touch)
+end
+
+function ${1:NodeEntity}:touchMove(touch)
+  BaseClass.touchMove(self, touch)
+end
+
+function ${1:NodeEntity}:touchCancelled(touch)
+  BaseClass.touchCancelled(self, touch)
+end
+
+function ${1:NodeEntity}:mouseDown(mouse)
+  BaseClass.mouseDown(self, mouse)
+end
+
+function ${1:NodeEntity}:mouseUp(mouse)
+  BaseClass.mouseUp(self, mouse)
+end
+
+function ${1:NodeEntity}:mouseMove(mouse)
+  BaseClass.mouseMove(self, mouse)
 end
 
 --#############################################################################
@@ -180,7 +276,7 @@ return ${1:NodeEntity}
 
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	<tabTrigger>nodeEntity</tabTrigger>
+	<tabTrigger>nodeEntityChild</tabTrigger>
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
 	<scope>source.lua</scope>
 </snippet>

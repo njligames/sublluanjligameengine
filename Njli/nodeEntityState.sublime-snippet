@@ -37,63 +37,159 @@ end
 --############################################################################# 
 
 function ${1:NodeEntityState}:enter()
-	BaseClass.enter(self)
-    print("${1:NodeEntityState}:enter()")
+  BaseClass.enter(self)
 end
 
 function ${1:NodeEntityState}:update(timeStep)
-	BaseClass.update(self, timeStep)
-    print("${1:NodeEntityState}:update(timeStep)")
+  BaseClass.update(self, timeStep)
 end
 
 function ${1:NodeEntityState}:exit()
-	BaseClass.exit(self)
-    print("${1:NodeEntityState}:exit()")
+  BaseClass.exit(self)
 end
 
 function ${1:NodeEntityState}:onMessage()
-	BaseClass.onMessage(self)
-    print("${1:NodeEntityState}:onMessage()")
+  BaseClass.onMessage(self)
 end
 
-function ${1:NodeEntityState}:touchDown(rayContact)
-	BaseClass.touchDown(self, rayContact)
-    print("${1:NodeEntityState}:touchDown(rayContact)")
+function ${1:NodeEntityState}:rayTouchesDown(rayContact)
+  BaseClass.rayTouchesDown(self, rayContact)
 end
 
-function ${1:NodeEntityState}:touchUp(rayContact)
-	BaseClass.touchUp(self, rayContact)
-    print("${1:NodeEntityState}:touchUp(rayContact)")
+function ${1:NodeEntityState}:rayTouchesUp(rayContact)
+  BaseClass.rayTouchesUp(self, rayContact)
 end
 
-function ${1:NodeEntityState}:touchMove(rayContact)
-	BaseClass.touchMove(self, rayContact)
-    print("${1:NodeEntityState}:touchMove(rayContact)")
+function ${1:NodeEntityState}:rayTouchesMove(rayContact)
+  BaseClass.rayTouchesMove(self, rayContact)
 end
 
-function ${1:NodeEntityState}:touchCancelled(rayContact)
-	BaseClass.touchCancelled(self, rayContact)
-    print("${1:NodeEntityState}:touchCancelled(rayContact)")
+function ${1:NodeEntityState}:rayTouchesCancelled(rayContact)
+  BaseClass.rayTouchesCancelled(self, rayContact)
+end
+
+function ${1:NodeEntityState}:rayTouchesMissed(node)
+  BaseClass.rayTouchesMissed(self, node)
+end
+
+function ${1:NodeEntityState}:rayTouchDown(rayContact)
+  BaseClass.rayTouchDown(self, rayContact)
+end
+
+function ${1:NodeEntityState}:rayTouchUp(rayContact)
+  BaseClass.rayTouchUp(self, rayContact)
+end
+
+function ${1:NodeEntityState}:rayTouchMove(rayContact)
+  BaseClass.rayTouchMove(self, rayContact)
+end
+
+function ${1:NodeEntityState}:rayTouchCancelled(rayContact)
+  BaseClass.rayTouchCancelled(self, rayContact)
+end
+
+function ${1:NodeEntityState}:rayTouchMissed(node)
+  BaseClass.rayTouchMissed(self, node)
+end
+
+function ${1:NodeEntityState}:rayMouseDown(rayContact)
+  BaseClass.rayMouseDown(self, rayContact)
+end
+
+function ${1:NodeEntityState}:rayMouseUp(rayContact)
+  BaseClass.rayMouseUp(self, rayContact)
+end
+
+function ${1:NodeEntityState}:rayMouseMove(rayContact)
+  BaseClass.rayMouseMove(self, rayContact)
+end
+
+function ${1:NodeEntityState}:rayMouseMissed(node)
+  BaseClass.rayMouseMissed(self, node)
 end
 
 function ${1:NodeEntityState}:collide(otherNode, collisionPoint)
-	BaseClass.collide(self, collisionPoint)
-    print("${1:NodeEntityState}:collide(otherNode, collisionPoint)")
+  BaseClass.collide(self, otherNode, collisionPoint)
 end
 
 function ${1:NodeEntityState}:near(otherNode)
-	BaseClass.near(self, otherNode)
-    print("${1:NodeEntityState}:near(otherNode)")
+  BaseClass.near(self, otherNode)
 end
 
 function ${1:NodeEntityState}:actionUpdate(action, timeStep)
-	BaseClass.actionUpdate(self, timeStep)
-    print("${1:NodeEntityState}:actionUpdate(action, timeStep)")
+  BaseClass.actionUpdate(self, action, timeStep)
 end
 
 function ${1:NodeEntityState}:actionComplete(action)
-	BaseClass.actionComplete(self, action)
-    print("${1:NodeEntityState}:actionComplete(action)")
+  BaseClass.actionComplete(self, action)
+end
+
+function ${1:NodeEntityState}:keyboardShow()
+  BaseClass.keyboardShow(self)
+end
+
+function ${1:NodeEntityState}:keyboardCancel()
+  BaseClass.keyboardCancel(self)
+end
+
+function ${1:NodeEntityState}:keyboardReturn()
+  BaseClass.keyboardReturn(self)
+end
+
+function ${1:NodeEntityState}:renderHUD()
+  BaseClass.renderHUD(self)
+end
+
+function ${1:NodeEntityState}:gamePause()
+  BaseClass.gamePause(self)
+end
+
+function ${1:NodeEntityState}:gameUnPause()
+  BaseClass.gameUnPause(self)
+end
+
+function ${1:NodeEntityState}:touchesDown(touches)
+  BaseClass.touchesDown(self, touches)
+end
+
+function ${1:NodeEntityState}:touchesUp(touches)
+  BaseClass.touchesUp(self, touches)
+end
+
+function ${1:NodeEntityState}:touchesMove(touches)
+  BaseClass.touchesMove(self, touches)
+end
+
+function ${1:NodeEntityState}:touchesCancelled(touches)
+  BaseClass.touchesCancelled(self, touches)
+end
+
+function ${1:NodeEntityState}:touchDown(touch)
+  BaseClass.touchDown(self, touch)
+end
+
+function ${1:NodeEntityState}:touchUp(touch)
+  BaseClass.touchUp(self, touch)
+end
+
+function ${1:NodeEntityState}:touchMove(touch)
+  BaseClass.touchMove(self, touch)
+end
+
+function ${1:NodeEntityState}:touchCancelled(touch)
+  BaseClass.touchCancelled(self, touch)
+end
+
+function ${1:NodeEntityState}:mouseDown(mouse)
+  BaseClass.mouseDown(self, mouse)
+end
+
+function ${1:NodeEntityState}:mouseUp(mouse)
+  BaseClass.mouseUp(self, mouse)
+end
+
+function ${1:NodeEntityState}:mouseMove(mouse)
+  BaseClass.mouseMove(self, mouse)
 end
 
 --#############################################################################
@@ -180,7 +276,7 @@ return ${1:NodeEntityState}
 
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	<tabTrigger>nodeEntityState</tabTrigger>
+	<tabTrigger>nodeEntityStateChild</tabTrigger>
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
 	<scope>source.lua</scope>
 </snippet>

@@ -38,112 +38,118 @@ end
 
 function ${1:worldEntityState}:enter()
   BaseClass.enter(self)
-  print("${1:worldEntityState}:enter()")
 end
 
 function ${1:worldEntityState}:update(timeStep)
   BaseClass.update(self, timeStep)
-  print("${1:worldEntityState}:update(timeStep)")
 end
 
 function ${1:worldEntityState}:exit()
   BaseClass.exit(self)
-  print("${1:worldEntityState}:exit()")
 end
 
 function ${1:worldEntityState}:onMessage(message)
   BaseClass.onMessage(self, message)
-  print("${1:worldEntityState}:onMessage(message)")
 end
 
 function ${1:worldEntityState}:renderHUD()
   BaseClass.renderHUD(self)
-  print("${1:worldEntityState}:renderHUD()")
+end
+
+function ${1:worldEntityState}:touchesDown(touches)
+  BaseClass.touchesDown(self, touches)
+end
+
+function ${1:worldEntityState}:touchesUp(touches)
+  BaseClass.touchesUp(self, touches)
+end
+
+function ${1:worldEntityState}:touchesMove(touches)
+  BaseClass.touchesMove(self, touches)
+end
+
+function ${1:worldEntityState}:touchesCancelled(touches)
+  BaseClass.touchesCancelled(self, touches)
 end
 
 function ${1:worldEntityState}:touchDown(touches)
   BaseClass.touchDown(self, touches)
-  print("${1:worldEntityState}:touchDown(touches)")
 end
 
 function ${1:worldEntityState}:touchUp(touches)
   BaseClass.touchUp(self, touches)
-  print("${1:worldEntityState}:touchUp(touches)")
 end
 
 function ${1:worldEntityState}:touchMove(touches)
   BaseClass.touchMove(self, touches)
-  print("${1:worldEntityState}:touchMove(touches)")
 end
 
 function ${1:worldEntityState}:touchCancelled(touches)
   BaseClass.touchCancelled(self, touches)
-  print("${1:worldEntityState}:touchCancelled(touches)")
+end
+
+function ${1:worldEntityState}:mouseDown(mouse)
+  BaseClass.mouseDown(self, mouse)
+end
+
+function ${1:worldEntityState}:mouseUp(mouse)
+  BaseClass.mouseUp(self, mouse)
+end
+
+function ${1:worldEntityState}:mouseMove(mouse)
+  BaseClass.mouseMove(self, mouse)
 end
 
 function ${1:worldEntityState}:pause()
   BaseClass.pause(self)
-  print("${1:worldEntityState}:pause()")
 end
 
 function ${1:worldEntityState}:unPause()
   BaseClass.unPause(self)
-  print("${1:worldEntityState}:unPause()")
 end
 
 function ${1:worldEntityState}:keyboardShow()
   BaseClass.keyboardShow(self)
-  print("${1:worldEntityState}:keyboardShow()")
 end
 
 function ${1:worldEntityState}:keyboardCancel()
   BaseClass.keyboardCancel(self)
-  print("${1:worldEntityState}:keyboardCancel()")
 end
 
 function ${1:worldEntityState}:keyboardReturn(text)
   BaseClass.keyboardReturn(self, text)
-  print("${1:worldEntityState}:keyboardReturn(text)")
 end
 
 function ${1:worldEntityState}:willResignActive()
   BaseClass.willResignActive(self)
-  print("${1:worldEntityState}:willResignActive()")
 end
 
 function ${1:worldEntityState}:didBecomeActive()
   BaseClass.didBecomeActive(self)
-  print("${1:worldEntityState}:didBecomeActive()")
 end
 
 function ${1:worldEntityState}:didEnterBackground()
   BaseClass.didEnterBackground(self)
-  print("${1:worldEntityState}:didEnterBackground()")
 end
 
 function ${1:worldEntityState}:willEnterForeground()
   BaseClass.willEnterForeground(self)
-  print("${1:worldEntityState}:willEnterForeground()")
 end
 
 function ${1:worldEntityState}:willTerminate()
   BaseClass.willTerminate(self)
-  print("${1:worldEntityState}:willTerminate()")
 end
 
 function ${1:worldEntityState}:interrupt()
   BaseClass.interrupt(self)
-  print("${1:worldEntityState}:interrupt()")
 end
 
 function ${1:worldEntityState}:resumeInterrupt()
   BaseClass.resumeInterrupt(self)
-  print("${1:worldEntityState}:resumeInterrupt()")
 end
 
-function ${1:worldEntityState}:receivedMemoryWarning()
+function ${1:WorldEntity}:receivedMemoryWarning()
   BaseClass.receivedMemoryWarning(self)
-  print("${1:worldEntityState}:receivedMemoryWarning()")
 end
 
 --#############################################################################
@@ -196,12 +202,12 @@ function ${1:worldEntityState}:__tostring()
 end
 
 function ${1:worldEntityState}:_destroy()
-  assert(not self.__GameplayCalledLoad, "Must unload before you destroy")
+  assert(not self.__${1:worldEntityState}CalledLoad, "Must unload before you destroy")
   __dtor(self)
 end
 
 function ${1:worldEntityState}:_create(init)
-  self.__GameplayCalledLoad = false
+  self.__${1:worldEntityState}CalledLoad = false
   __ctor(self, init)
 end
 
@@ -212,15 +218,15 @@ function ${1:worldEntityState}:load()
   --load derived last...
   __load(self)
 
-  self.__GameplayCalledLoad = true
+  self.__${1:worldEntityState}CalledLoad = true
 end
 
 function ${1:worldEntityState}:unLoad()
-  assert(self.__GameplayCalledLoad, "Must load before unloading")
+  assert(self.__${1:worldEntityState}CalledLoad, "Must load before unloading")
 
   --unload derived first...
   __unLoad(self)
-  self.__GameplayCalledLoad = false
+  self.__${1:worldEntityState}CalledLoad = false
 
   --unload base last...
   BaseClass.unLoad(self)
@@ -230,7 +236,7 @@ return ${1:worldEntityState}
 
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	<tabTrigger>worldEntityState</tabTrigger>
+	<tabTrigger>worldEntityStateChild</tabTrigger>
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
 	<scope>source.lua</scope>
 </snippet>
